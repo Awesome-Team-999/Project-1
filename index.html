@@ -14,30 +14,37 @@
 </head>
 
 <body>
-    <h1>Project 1</h1>
-
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4" id="header">Exoplanet Finder</h1>
+            <p class="lead">Use parameters to search for planets!</p>
+        </div>
+    </div>
 
     <form action="/action_page.php">
         <label for="Temperature">Temperature:</label>
         <select name="Temperature">
-            <option value="Really Cold">Really Cold</option>
-            <option value="Cold">Cold</option>
-            <option value="Warm">Warm</option>
-            <option value="Really Warm">Really Warm</option>
+            <option data-min = "0" data-max="5075">(&lt; 5075K)</option>
+            <option data-min = "5075" data-max = "5575">(5075 - 5575K)</option>
+            <option data-min="5575" data-max = "6075">(5575 - 6075K)</option>
+            <option data-min="6075" data-max = "10000000">(&gt;6075K)</option
+
         </select>
-        <label for="Planet Mass">Planet Mass:</label>
+        <label for="Planet Mass">Planet Mass (in Jupiters):</label>
         <select name="Planet Mass">
-            <option value="Really Small">Really Small</option>
-            <option value="Small">Small</option>
-            <option value="Big">Big</option>
-            <option value="Really Big">Really Big</option>
+            <option data-min = "0" data-max = "0.5">0 - 0.5 Jupiters</option>
+            <option data-min = "0.5" data-max = "2">0.5 - 2 Jupiters</option>
+            <option data-min = "2" data-max = "7">2 - 7 Jupiters</option>
+            <option data-min = "7" data-max = "1000000000">&gt; 7 Jupiters</option>
         </select>
-        <label for="Orbital Period">Orbital Days:</label>
+        <label for="Orbital Period">Orbital Period (Earth Days):</label>
         <select name="Orbital Period">
-            <option value="Really Long">Really Small</option>
-            <option value="Long">Small</option>
-            <option value="Short">Big</option>
-            <option value="Really Short">Really Big</option>
+            <option data-min = "0" data-max = "5">0 - 5 Days</option>
+            <option data-min = "5" data-max = "10">5 - 10 Days</option>
+            <option data-min = "10" data-max = "20">10 - 20 Days</option>
+            <option data-min = "20" data-max = "100">20 - 100 Days</option>
+            <option data-min = "100" data-max = "1000">100 - 1000 Days</option>
+            <option data-min = "1000" data-max = "10000000000000000000">&gt; 1000 Days</option>
         </select>
         <br>
         <input type="submit">
