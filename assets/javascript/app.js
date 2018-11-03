@@ -10,5 +10,5 @@ $.ajax({
 })
     .then(function(response){
         var results = response.data;
-        
+        $("#results").append(url);
     })
