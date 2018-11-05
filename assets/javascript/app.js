@@ -1,5 +1,4 @@
 var queryURL = "https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets&select=pl_name,pl_orbper,pl_bmassj,st_dist,st_teff&order=dec&format=ascii";
-<<<<<<< HEAD
 var config = {
     apiKey: "EBb20IKo5DUliI4QmZnwQQ4sfvUKIcqfgHdePwb3",
 }
@@ -38,18 +37,6 @@ $.ajax({
   
   });
 //"http://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=planets&constraint=st_teffstr%20between%200%20and%205075"
-=======
-// var config = {
-//     apiKey: "EBb20IKo5DUliI4QmZnwQQ4sfvUKIcqfgHdePwb3",
-// }
 
-$.ajax({
-    url: queryURL,
-    method: 'GET'
-
-})
-    .then(function(response){
-        $("#results").append(response);
-        console.log(response);
-    })
->>>>>>> changes to js to append table to page
+//Base URL
+//"http://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=planets&constraint=st_teffstr%20between%20" + tempMin + "%20and%20" + tempMax + "&constraint=pl_bmassjstr%20between%20" + massMin + "%20and%20" + massMax + "&constraint=pl_orbperstr%20between%20" + orbitMin + "%20and%20" + orbitMax
