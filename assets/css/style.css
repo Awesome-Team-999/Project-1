@@ -1,0 +1,26 @@
+.jumbotron {
+    color: white;
+    /* background-color: black; */
+    text-align: center;
+    background-image: url("../images/space3.jpg");
+}
+
+#header {
+    font-weight: bold;
+}
+
+.lead {
+    font-weight: bold;
+}
+
+body {
+    background-image: url("../images/space3.jpg");
+}
+
+#planets {
+    color: white;
+}
+
+#options {
+    color: white;
+}

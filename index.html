@@ -6,6 +6,8 @@
     <title>Project 1</title>
     <!-- Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="assets/css/style.css">
     <!-- Jquery Link -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Link to Moment.js should go here -->
@@ -27,38 +29,38 @@
 
                 <form action="/action_page.php">
 
-                    <div class="container">
+                    <div class="container" id="options">
                         <div class="row">
 
                             <div class="col-md-3">
                                 <label for="Temperature">Temperature:</label>
                                 <select name="Temperature" id="temp">
-                                    <option data-min = "0" data-max="5075">(&lt; 5075K)</option>
-                                    <option data-min = "5075" data-max = "5575">(5075 - 5575K)</option>
-                                    <option data-min="5575" data-max = "6075">(5575 - 6075K)</option>
-                                    <option data-min="6075" data-max = "10000000">(&gt;6075K)</option>
+                                    <option data-min="0" data-max="5075">(&lt; 5075K)</option>
+                                    <option data-min="5075" data-max="5575">(5075 - 5575K)</option>
+                                    <option data-min="5575" data-max="6075">(5575 - 6075K)</option>
+                                    <option data-min="6075" data-max="10000000">(&gt;6075K)</option>
                                 </select>
                             </div>
 
                             <div class="col-md-4">
                                 <label for="Planet Mass">Planet Mass (in Jupiters):</label>
                                 <select name="Planet Mass" id="mass">
-                                    <option data-min = "0" data-max = "0.5">0 - 0.5 Jupiters</option>
-                                    <option data-min = "0.5" data-max = "2">0.5 - 2 Jupiters</option>
-                                    <option data-min = "2" data-max = "7">2 - 7 Jupiters</option>
-                                    <option data-min = "7" data-max = "1000000000">&gt; 7 Jupiters</option>
+                                    <option data-min="0" data-max="0.5">0 - 0.5 Jupiters</option>
+                                    <option data-min="0.5" data-max="2">0.5 - 2 Jupiters</option>
+                                    <option data-min="2" data-max="7">2 - 7 Jupiters</option>
+                                    <option data-min="7" data-max="1000000000">&gt; 7 Jupiters</option>
                                 </select>
                             </div>
 
                             <div class="col-md-5">
                                 <label for="Orbital Period">Orbital Period (Earth Days):</label>
                                 <select name="Orbital Period" id="orbit">
-                                    <option data-min = "0" data-max = "5">0 - 5 Days</option>
-                                    <option data-min = "5" data-max = "10">5 - 10 Days</option>
-                                    <option data-min = "10" data-max = "20">10 - 20 Days</option>
-                                    <option data-min = "20" data-max = "100">20 - 100 Days</option>
-                                    <option data-min = "100" data-max = "1000">100 - 1000 Days</option>
-                                    <option data-min = "1000" data-max = "10000000000000000000">&gt; 1000 Days</option>
+                                    <option data-min="0" data-max="5">0 - 5 Days</option>
+                                    <option data-min="5" data-max="10">5 - 10 Days</option>
+                                    <option data-min="10" data-max="20">10 - 20 Days</option>
+                                    <option data-min="20" data-max="100">20 - 100 Days</option>
+                                    <option data-min="100" data-max="1000">100 - 1000 Days</option>
+                                    <option data-min="1000" data-max="10000000000000000000">&gt; 1000 Days</option>
                                 </select>
                             </div>
 
@@ -71,28 +73,30 @@
         </div>
     </div>
 
-                
-                    
-                    
-                   
-                   
-                        
-                
-                    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered" id="planets">
+                    <tr>
+                        <th>Planet Name</th>
+                        <th>Orbital Period (in days)</th>
+                        <th>Planet Mass(in Jupiter masses)</th>
+                        <th>Distance to Planetary System (in parsecs)</th>
+                        <th>Temperature of the star (in Kelvin)</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" id="results">
+                <script src="assets/javascript/app.js"></script>
 
             </div>
         </div>
     </div>
-    
-<div class="container">
-    <div class="row">
-        <div class="col-md-12" id="results">
-                <script src="assets/javascript/app.js"></script>
-
-        </div>
-    </div>
-</div>
-    
 
 </body>
 
