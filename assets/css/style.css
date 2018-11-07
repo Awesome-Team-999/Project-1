@@ -15,6 +15,7 @@
 
 body {
     background-image: url("../images/space3.jpg");
+    text-align: center;
 }
 
 #planets {
@@ -27,4 +28,21 @@ body {
 
 #Earth {
     color: white;
+}
+
+#weights {
+    color: white;
+    text-align: center;
+}
+
+.form {
+    display: block;
+    text-align: center;
+}
+
+form {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
 }
