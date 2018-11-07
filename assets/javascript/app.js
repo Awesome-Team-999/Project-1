@@ -39,11 +39,13 @@ $("#submit").on("click", function(event) {
             console.log(boo);
     
             for (i = 0; i < foo.length; i++) {
-            $("#planets").append("<tr><td>" + foo[i].pl_name + "</td><td>" + foo[i].pl_orbper + "</td><td>" + foo[i].pl_bmassj + "</td><td>" + foo[i].st_dist + "</td><td>" + foo[i].st_teff + "</tr>");  
+            $("#planets").append(
+            "<tr><td><a href = 'https://awesome-team-999.github.io/Project-1/planet-page.html' target = '_blank'>" + foo[i].pl_name + "</a></td><td>" + 
+            foo[i].pl_orbper + "</td><td>" + foo[i].pl_bmassj + "</td><td>" + foo[i].st_dist + 
+            "</td><td>" + foo[i].st_teff + "</tr>");  
             }
         });
 });
-
 
 
 

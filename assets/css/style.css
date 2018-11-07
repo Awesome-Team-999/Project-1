@@ -1,4 +1,4 @@
-.jumbotron {
+.jumbotron, h1{
     color: white;
     /* background-color: black; */
     text-align: center;
@@ -23,4 +23,18 @@ body {
 
 #options {
     color: white;
+}
+
+#Earth {
+    color: white;
+}
+
+.planet-info {
+    color: white;
+}
+
+a {
+    color: lightgoldenrodyellow;
+    font-weight: bold;
+    background-color: black;
 }
