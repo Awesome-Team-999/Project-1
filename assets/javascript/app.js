@@ -47,6 +47,30 @@ $("#submit").on("click", function(event) {
         });
 });
 
+// var weight = $("#weight-input")
+// $("#submit2").on("click", function(event2) {
+//      event.preventDefault();
+//      var planetRadius = $("");
+//      var planetMass = $("");
+//      var personMass = $("#weight-input");
+//      var queryURL2 = "";
+//
+//      $.ajax({
+//          url: queryURL2
+//          method: "GET"
+//      })
+//          .then(function(response2){
+//              var surfaceGravity = ((6.673 * 10^-11) * planetMass) / planetRadius ^ 2;
+//              var personWeight = surfaceGravity * personMass;
+//              $("#weight-results").append(personWeight);
+//
+//
+//          });
+//
+//
+//
+//
+//})
 
 
 //"http://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=planets&constraint=st_teffstr%20between%200%20and%205075"
