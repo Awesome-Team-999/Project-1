@@ -72,6 +72,7 @@ $("#submit").on("click", function(event) {
 //
 //})
 
+
 //"http://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=planets&constraint=st_teffstr%20between%200%20and%205075"
 
 //Base URL
