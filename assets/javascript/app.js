@@ -185,6 +185,20 @@ $("#reset").on("click", function(event3) {
 });
 
 
+console.log(planetName);
+
+$("#moreinfo").on("click", function(){
+       console.log("hello");
+       url =  "https://exoplanets.nasa.gov/search.html?q=" + planetName;
+       window.open (url, '_blank');
+});
+
+$("#reset").on("click", function(event3) {
+   event3.preventDefault();
+   $("#planetinfo").empty();
+})
+
+
 //"http://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=planets&constraint=st_teffstr%20between%200%20and%205075"
 
 //Base URL
