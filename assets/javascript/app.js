@@ -144,6 +144,7 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
     console.log(planetName);
     var planetRadius = snapshot.val().planetRadius;
     console.log(planetRadius);
+    var planetRads = planetRadius * 71492000;
     var planetMassinJupiters = snapshot.val().planetMass;
     console.log(planetMassinJupiters);
     console.log(snapshot.val());
@@ -152,7 +153,7 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
         event2.preventDefault();
         var planetMass = planetMassinJupiters * (1.898 * Math.pow(10, 27));
         var personMass = $("#weight-input").val();
-        var surfaceGravity = (6.673 * Math.pow(10, -11) * planetMass) / Math.pow(planetRadius, 2);
+        var surfaceGravity = (6.673 * Math.pow(10, -11) * planetMass) / Math.pow(planetRads, 2);
         var personWeight = surfaceGravity * personMass;
         $("#weight-results").append(personWeight);
         if (planetRadius == null || planetMass == null) {
@@ -174,7 +175,7 @@ $("#moreinfo").on("click", function(){
 
 $("#reset").on("click", function(event3) {
    event3.preventDefault();
-   $("#planetinfo").empty();
+   $("#planets").empty();
 })
 
 
