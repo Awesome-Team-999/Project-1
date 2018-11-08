@@ -18,15 +18,7 @@ body {
     text-align: center;
 }
 
-#planets {
-    color: white;
-}
-
-#options {
-    color: white;
-}
-
-#Earth {
+#Earth, #weight-results, #options, #planets{
     color: white;
 }
 
