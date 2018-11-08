@@ -4,6 +4,7 @@ var config = {
     apiKey: "EBb20IKo5DUliI4QmZnwQQ4sfvUKIcqfgHdePwb3",
 }
 var newdata;
+var planetName;
  // Initialize Firebase
 var config2 = {
     apiKey: "AIzaSyDDXtd4DCQU7kqmY4EwgdfIwAfnvpcZuwM",
@@ -138,7 +139,11 @@ var linkFormatter = function(cell, formatterParams){
 
 database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function (snapshot) {
     planetName = snapshot.val().planet;
+<<<<<<< HEAD
     $("#planet-name").text(planetName);
+=======
+    $("#planet-name").append(planetName);
+>>>>>>> minor changes
     console.log(planetName);
     var planetRadius = snapshot.val().planetRadius;
     console.log(planetRadius);
@@ -187,7 +192,7 @@ $("#reset").on("click", function(event3) {
 
 
 console.log(planetName);
-
+// Search function to put the planet name from firebase into a search query for NASA
 $("#moreinfo").on("click", function(){
        console.log("hello");
        url =  "https://exoplanets.nasa.gov/search.html?q=" + planetName;
@@ -195,9 +200,10 @@ $("#moreinfo").on("click", function(){
 });
 
 $("#reset").on("click", function(event3) {
-   event3.preventDefault();
-   $("#planets").empty();
-})
+    event3.preventDefault();
+    $("#planetinfo").empty();
+    $("#planetinfo").append("<div class='row'> <div class='col-md-12'><table class='table table-bordered' id='planets'> </table> </div> </div>")
+});
 
 
 //"http://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=planets&constraint=st_teffstr%20between%200%20and%205075"
