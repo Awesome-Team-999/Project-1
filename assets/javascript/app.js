@@ -138,18 +138,26 @@ var linkFormatter = function(cell, formatterParams){
 });
 
 database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function (snapshot) {
+    var planetName = snapshot.val().planet;
+    $("#planet-name").append(planetName);
+    console.log(planetName);
     var planetRadius = snapshot.val().planetRadius;
     console.log(planetRadius);
     var planetMassinJupiters = snapshot.val().planetMass;
     console.log(planetMassinJupiters);
+    console.log(snapshot.val());
     
     $("#submit2").on("click", function(event2) {
         event2.preventDefault();
-        var planetMass = planetMassinJupiters * (1.898 * 10^27);
-        var personMass = $("#weight-input");
-        var surfaceGravity = ((6.673 * 10^-11) * planetMass) / planetRadius ^ 2;
+        var planetMass = planetMassinJupiters * (1.898 * Math.pow(10, 27));
+        var personMass = $("#weight-input").val();
+        var surfaceGravity = (6.673 * Math.pow(10, -11) * planetMass) / Math.pow(planetRadius, 2);
         var personWeight = surfaceGravity * personMass;
         $("#weight-results").append(personWeight);
+        if (planetRadius == null || planetMass == null) {
+            $("#weight-results").append("Sorry, there is either no data on this planet's Mass or Radius")
+
+        }
     });
         
         
