@@ -140,7 +140,7 @@ var linkFormatter = function(cell, formatterParams){
 
 database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function (snapshot) {
     planetName = snapshot.val().planet;
-    $("#planet-name").append(planetName);
+    $("#planet-name").text(planetName);
     console.log(planetName);
     var planetRadius = snapshot.val().planetRadius;
     console.log(planetRadius);
