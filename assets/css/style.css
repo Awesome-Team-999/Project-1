@@ -48,3 +48,12 @@ form {
     margin-right: auto;
     text-align: left;
 }
+
+#planet-name, #weight-results {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
