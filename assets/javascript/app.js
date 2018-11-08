@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    var planetname = "KELT-14 b";
+    var planetname = "Kepler-419 c";
     var url = " ";
     console.log(planetname);
 
@@ -10,6 +10,10 @@ $(document).ready(function() {
         window.open (url, '_blank');
 });
 
+$("#reset").on("click", function(event) {
+    event.preventDefault();
+    $("#planetinfo").empty();
+})
     var queryURL = "";
     var config = {
         apiKey: "EBb20IKo5DUliI4QmZnwQQ4sfvUKIcqfgHdePwb3",
