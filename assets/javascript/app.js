@@ -4,7 +4,6 @@ var config = {
     apiKey: "EBb20IKo5DUliI4QmZnwQQ4sfvUKIcqfgHdePwb3",
 }
 var newdata;
-var planetName;
  // Initialize Firebase
 var config2 = {
     apiKey: "AIzaSyDDXtd4DCQU7kqmY4EwgdfIwAfnvpcZuwM",
@@ -103,7 +102,7 @@ var linkFormatter = function(cell, formatterParams){
         $("#planets").tabulator({
     
             //height:800, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
-            //layout:"fitColumns", //fit columns to width of table (optional)
+            layout:"fitColumns",
             columns:[ //Define Table Columns
                 {title:"Planet Name", field:"pl_name", align: "left", formatter:linkFormatter, formatterParams:{url:"index2.html"}},
                 {title:"Orbital Period (in Earth Days)", field:"pl_orbper", align:"left"},
@@ -125,8 +124,6 @@ var linkFormatter = function(cell, formatterParams){
                     planetRadius: newdata.pl_radj,
                     dateAdded: firebase.database.ServerValue.TIMESTAMP
                 });
-                //console.log(row.getData()); 
-                //populate(newdata);
             },
         });
         populate(foo);
@@ -138,8 +135,9 @@ var linkFormatter = function(cell, formatterParams){
        // });
 });
 
+
 database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function (snapshot) {
-    planetName = snapshot.val().planet;
+    var planetName = snapshot.val().planet;
     $("#planet-name").append(planetName);
     console.log(planetName);
     var planetRadius = snapshot.val().planetRadius;
@@ -147,7 +145,12 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
     var planetMassinJupiters = snapshot.val().planetMass;
     console.log(planetMassinJupiters);
     console.log(snapshot.val());
-    
+    $("#planet-text").text(planetName);
+    if (planetRadius == null){
+        $("#planet-text-radius").text("No data")
+    } else{
+        document.getElementById("planet-radius").setAttribute('r', planetRadius*30);
+    }
     $("#submit2").on("click", function(event2) {
         event2.preventDefault();
         var planetMass = planetMassinJupiters * (1.898 * Math.pow(10, 27));
@@ -159,25 +162,11 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
             $("#weight-results").append("Sorry, there is either no data on this planet's Mass or Radius")
 
         }
-    });        
+    });
+        
+        
 
 });
-
-
-
-var url = "";
-console.log(planetName);
-
-$("#moreinfo").on("click", function(){
-       console.log("hello");
-       url =  "https://exoplanets.nasa.gov/search.html?q=" + planetname;
-       window.open (url, '_blank');
-});
-
-$("#reset").on("click", function(event3) {
-   event3.preventDefault();
-   $("#planetinfo").empty();
-})
 
 
 //"http://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=planets&constraint=st_teffstr%20between%200%20and%205075"
