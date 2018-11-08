@@ -4,6 +4,7 @@ var config = {
     apiKey: "EBb20IKo5DUliI4QmZnwQQ4sfvUKIcqfgHdePwb3",
 }
 var newdata;
+var planetName;
  // Initialize Firebase
 var config2 = {
     apiKey: "AIzaSyDDXtd4DCQU7kqmY4EwgdfIwAfnvpcZuwM",
@@ -142,6 +143,7 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
     console.log(planetName);
     var planetRadius = snapshot.val().planetRadius;
     console.log(planetRadius);
+    var planetRads = planetRadius * 71492000;
     var planetMassinJupiters = snapshot.val().planetMass;
     console.log(planetMassinJupiters);
     console.log(snapshot.val());
@@ -155,11 +157,11 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
         event2.preventDefault();
         var planetMass = planetMassinJupiters * (1.898 * Math.pow(10, 27));
         var personMass = $("#weight-input").val();
-        var surfaceGravity = (6.673 * Math.pow(10, -11) * planetMass) / Math.pow(planetRadius, 2);
+        var surfaceGravity = (6.673 * Math.pow(10, -11) * planetMass) / Math.pow(planetRads, 2);
         var personWeight = surfaceGravity * personMass;
-        $("#weight-results").append(personWeight);
+        $("#weight-results").text(personWeight);
         if (planetRadius == null || planetMass == null) {
-            $("#weight-results").append("Sorry, there is either no data on this planet's Mass or Radius")
+            $("#weight-results").text("Sorry, there is either no data on this planet's Mass or Radius")
 
         }
     });
@@ -168,7 +170,7 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
 
     var url = "";
     console.log(planetName);
-    
+    // Search function to put the planet name from firebase into a search query for NASA
     $("#moreinfo").on("click", function(){
            console.log("hello");
            url =  "https://exoplanets.nasa.gov/search.html?q=" + planetName;
@@ -183,7 +185,6 @@ $("#reset").on("click", function(event3) {
    $("#planetinfo").empty();
    $("#planetinfo").append("<div class='row'> <div class='col-md-12'><table class='table table-bordered' id='planets'> </table> </div> </div>")
 });
-
 
 //"http://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=planets&constraint=st_teffstr%20between%200%20and%205075"
 
