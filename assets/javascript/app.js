@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 var queryURL = "";
 var config = {
     apiKey: "EBb20IKo5DUliI4QmZnwQQ4sfvUKIcqfgHdePwb3",
@@ -171,6 +172,9 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
 });
 =======
     var planetname = "KELT-14 b";
+=======
+    var planetname = "Kepler-419 c";
+>>>>>>> made reset button
     var url = " ";
     console.log(planetname);
 
@@ -180,6 +184,10 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
         window.open (url, '_blank');
 });
 
+$("#reset").on("click", function(event) {
+    event.preventDefault();
+    $("#planetinfo").empty();
+})
     var queryURL = "";
     var config = {
         apiKey: "EBb20IKo5DUliI4QmZnwQQ4sfvUKIcqfgHdePwb3",
