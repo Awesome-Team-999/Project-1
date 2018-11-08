@@ -139,11 +139,7 @@ var linkFormatter = function(cell, formatterParams){
 
 database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function (snapshot) {
     planetName = snapshot.val().planet;
-<<<<<<< HEAD
     $("#planet-name").text(planetName);
-=======
-    $("#planet-name").append(planetName);
->>>>>>> minor changes
     console.log(planetName);
     var planetRadius = snapshot.val().planetRadius;
     console.log(planetRadius);
@@ -163,9 +159,9 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
         var personMass = $("#weight-input").val();
         var surfaceGravity = (6.673 * Math.pow(10, -11) * planetMass) / Math.pow(planetRads, 2);
         var personWeight = surfaceGravity * personMass;
-        $("#weight-results").append(personWeight);
+        $("#weight-results").text(personWeight);
         if (planetRadius == null || planetMass == null) {
-            $("#weight-results").append("Sorry, there is either no data on this planet's Mass or Radius")
+            $("#weight-results").text("Sorry, there is either no data on this planet's Mass or Radius")
 
         }
     });
@@ -174,7 +170,7 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
 
     var url = "";
     console.log(planetName);
-    
+    // Search function to put the planet name from firebase into a search query for NASA
     $("#moreinfo").on("click", function(){
            console.log("hello");
            url =  "https://exoplanets.nasa.gov/search.html?q=" + planetName;
@@ -189,22 +185,6 @@ $("#reset").on("click", function(event3) {
    $("#planetinfo").empty();
    $("#planetinfo").append("<div class='row'> <div class='col-md-12'><table class='table table-bordered' id='planets'> </table> </div> </div>")
 });
-
-
-console.log(planetName);
-// Search function to put the planet name from firebase into a search query for NASA
-$("#moreinfo").on("click", function(){
-       console.log("hello");
-       url =  "https://exoplanets.nasa.gov/search.html?q=" + planetName;
-       window.open (url, '_blank');
-});
-
-$("#reset").on("click", function(event3) {
-    event3.preventDefault();
-    $("#planetinfo").empty();
-    $("#planetinfo").append("<div class='row'> <div class='col-md-12'><table class='table table-bordered' id='planets'> </table> </div> </div>")
-});
-
 
 //"http://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=planets&constraint=st_teffstr%20between%200%20and%205075"
 
