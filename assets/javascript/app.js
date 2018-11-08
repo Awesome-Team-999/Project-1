@@ -92,7 +92,7 @@ var linkFormatter = function(cell, formatterParams){
             //height:800, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
             //layout:"fitColumns", //fit columns to width of table (optional)
             columns:[ //Define Table Columns
-                {title:"Planet Name", field:"pl_name", align: "left", formatter:linkFormatter, formatterParams:{url:"file:///Users/ericking/projects/Project-1/planet-page.html"}},
+                {title:"Planet Name", field:"pl_name", align: "left", formatter:linkFormatter, formatterParams:{url:"./planet-page.html"}},
                 {title:"Orbital Period (in Earth Days)", field:"pl_orbper", align:"left"},
                 {title:"Planet Mass (in Jupiter Masses)", field:"pl_bmassj", align: "left"},
                 {title:"Distance to Planetary System (in parsecs)", field:"st_dist", align:"left"},
