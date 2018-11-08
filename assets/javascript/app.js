@@ -137,8 +137,8 @@ var linkFormatter = function(cell, formatterParams){
 
 
 database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function (snapshot) {
-    var planetName = snapshot.val().planet;
-    $("#planet-name").append(planetName);
+    planetName = snapshot.val().planet;
+    $("#planet-name").text(planetName);
     console.log(planetName);
     var planetRadius = snapshot.val().planetRadius;
     console.log(planetRadius);
@@ -166,6 +166,22 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
         
         
 
+    var url = "";
+    console.log(planetName);
+    
+    $("#moreinfo").on("click", function(){
+           console.log("hello");
+           url =  "https://exoplanets.nasa.gov/search.html?q=" + planetName;
+           window.open (url, '_blank');
+    });
+
+});
+
+
+$("#reset").on("click", function(event3) {
+   event3.preventDefault();
+   $("#planetinfo").empty();
+   $("#planetinfo").append("<div class='row'> <div class='col-md-12'><table class='table table-bordered' id='planets'> </table> </div> </div>")
 });
 
 
