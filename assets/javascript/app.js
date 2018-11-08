@@ -156,7 +156,7 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
     $("#submit2").on("click", function(event2) {
         event2.preventDefault();
         var planetMass = planetMassinJupiters * (1.898 * Math.pow(10, 27));
-        var personMass = $("#weight-input").val();
+        var personMass = $("#weight-input").val() / (9.807);
         var surfaceGravity = (6.673 * Math.pow(10, -11) * planetMass) / Math.pow(planetRads, 2);
         var personWeight = surfaceGravity * personMass;
         $("#weight-results").text(personWeight);
