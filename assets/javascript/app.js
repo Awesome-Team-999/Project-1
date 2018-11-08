@@ -164,13 +164,11 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
 });
 
 
-
-var url = "";
 console.log(planetName);
 
 $("#moreinfo").on("click", function(){
        console.log("hello");
-       url =  "https://exoplanets.nasa.gov/search.html?q=" + planetname;
+       url =  "https://exoplanets.nasa.gov/search.html?q=" + planetName;
        window.open (url, '_blank');
 });
 
