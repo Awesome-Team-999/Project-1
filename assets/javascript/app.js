@@ -3,6 +3,7 @@ var queryURL = "";
 var config = {
     apiKey: "EBb20IKo5DUliI4QmZnwQQ4sfvUKIcqfgHdePwb3",
 }
+var newdata;
 
 $("#submit").on("click", function(event) {
     // Don't refresh the page!
@@ -26,6 +27,54 @@ $("#submit").on("click", function(event) {
     console.log(tempMin, tempMax, massMin, massMax,orbitMin, orbitMax);
     queryURL = "https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?table=exoplanets&select=pl_name,pl_orbper,pl_bmassj,st_dist,st_teff&order=dec&format=JSON&where=st_teff>=" + tempMin + "%20and%20st_teff<=" + tempMax + "%20and%20pl_bmassj>=" + massMin + "%20and%20pl_bmassj<=" + massMax + "%20and%20pl_orbper>=" + orbitMin + "%20and%20pl_orbper<=" + orbitMax;
 
+    function populate(data){
+        $("#planets").tabulator("setData", data);
+    }
+
+    //clickable anchor tag
+var linkFormatter = function(cell, formatterParams){
+	var value = this.sanitizeHTML(cell.getValue()),
+	urlPrefix = formatterParams.urlPrefix || "",
+	label = this.emptyToSpace(value),
+	data;
+
+	if(formatterParams.labelField){
+		data = cell.getData();
+		label = data[formatterParams.labelField];
+	}
+
+	if(formatterParams.label){
+		switch(typeof formatterParams.label){
+			case "string":
+			label = formatterParams.label;
+			break;
+
+			case "function":
+			label = formatterParams.label(cell);
+			break;
+		}
+	}
+
+	if(formatterParams.urlField){
+		data = cell.getData();
+		value = data[formatterParams.urlField];
+	}
+
+	if(formatterParams.url){
+		switch(typeof formatterParams.url){
+			case "string":
+			value = formatterParams.url;
+			break;
+
+			case "function":
+			value = formatterParams.url(cell);
+			break;
+		}
+	}
+
+	return "<a href='" + urlPrefix + value + "' target='_blank'>" + label + "</a>";
+}
+
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -33,18 +82,36 @@ $("#submit").on("click", function(event) {
     })
         .then(function(response){
             //var results = response.data;
+            //console.log(response);
             var foo = JSON.parse(response)
             console.log(foo);
             boo = foo[0].pl_name;
-            console.log(boo);
+
+        $("#planets").tabulator({
     
-            for (i = 0; i < foo.length; i++) {
-            $("#planets").append(
-            "<tr><td><a href = 'https://awesome-team-999.github.io/Project-1/planet-page.html' target = '_blank'>" + foo[i].pl_name + "</a></td><td>" + 
-            foo[i].pl_orbper + "</td><td>" + foo[i].pl_bmassj + "</td><td>" + foo[i].st_dist + 
-            "</td><td>" + foo[i].st_teff + "</tr>");  
-            }
+            //height:800, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
+            //layout:"fitColumns", //fit columns to width of table (optional)
+            columns:[ //Define Table Columns
+                {title:"Planet Name", field:"pl_name", align: "left", formatter:linkFormatter, formatterParams:{url:"file:///Users/ericking/projects/Project-1/planet-page.html"}},
+                {title:"Orbital Period (in Earth Days)", field:"pl_orbper", align:"left"},
+                {title:"Planet Mass (in Jupiter Masses)", field:"pl_bmassj", align: "left"},
+                {title:"Distance to Planetary System (in parsecs)", field:"st_dist", align:"left"},
+                {title:"Temperature of Star (in Kelvin", field:"st_teff", align:"left"}
+            ],
+            rowClick:function(e, row, cell){
+                newdata = row.getData();
+                console.log(cell.getRow());
+                //console.log(row.getData()); 
+                //populate(newdata);
+            },
         });
+        populate(foo);
+
+        });
+        //$("body").on("click", "#planets", function() {
+        //    console.log(newdata);
+            //$("#planets").html("");
+       // });
 });
 
 // var weight = $("#weight-input")
