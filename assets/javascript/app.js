@@ -155,18 +155,16 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
     }
     $("#submit2").on("click", function(event2) {
         event2.preventDefault();
-        var planetMass = planetMassinJupiters * (1.898 * Math.pow(10, 27));
-        var personMass = $("#weight-input").val() / (9.807);
-        var surfaceGravity = (6.673 * Math.pow(10, -11) * planetMass) / Math.pow(planetRads, 2);
-        var personWeight = surfaceGravity * personMass;
-        $("#weight-results").text(personWeight);
+        var planetMass = planetMassinJupiters * (1.898 * Math.pow(10, 27)) * 2.20462; //Planet Mass in Lbs
+        var personMass = $("#weight-input").val() / (9.807); //Person Weight (lbs) divided by Earth's Gravity
+        var surfaceGravity = ((6.673 * Math.pow(10, -11) / (2.20462)) * planetMass) / Math.pow(planetRads, 2); //Gravitational Constent (m^3 lbs^-1 s^-2) times the planet mass (lbs) divided by planet Radius squared (m^2)
+        var personWeight = surfaceGravity * personMass; //Gives us the weight of the person
+        $("#weight-results").text(personWeight + " lbs");
         if (planetRadius == null || planetMass == null) {
             $("#weight-results").text("Sorry, there is either no data on this planet's Mass or Radius")
 
         }
     });
-        
-        
 
     var url = "";
     console.log(planetName);
