@@ -1,8 +1,3 @@
-<!-- # Project-1
-This page allows users to search for exoplanets by choosing certain parameters. The page retrieves information from the NASA Exoplanet API on planets fitting these parameters and displays them in a table. Users can click on an individual planet, and the program stores the name of that planet in a Firebase server, then opens a new tab with further information on that planet. From that second page, the user can enter his or her weight and find what the user's weight would be on that planet. Users can also find further information on the NASA Exoplanet website. In addition to jQuery and Bootstrap, the program utilizes the Tabulator library to create the table of planets.
-
-https://awesome-team-999.github.io/Project-1/ -->
-
 # Exoplanet Finder
 This website allows users to search for exoplanets, or planets located oustide of the Solar System that have been identified by NASA, by selecting certain search criteria. This site would be useful to anyone who wants to learn more about astronomy and known exoplanets. 
 
@@ -18,12 +13,23 @@ The file also contains a function which is triggered whenever the user clicks on
 
 ## How to use site
 On the homepage, there are three dropdown menus, each of which has search criteria to query the NASA Exoplanet with. These criteria are temperature (in Kelvin), planet mass in Jupiter masses, and orbital period in Earth days. Clicking the 'Submit' button next to these menus will query the database with the selected criteria. The results retrieved from the database will then be displayed in the table below. The user can then click the 'Reset' button next to the submit button to reset the page back to its original state.
-The results are displayed in the form of a table which is organized into six columns. Each column contains a category of information for each planet that is retrieved from the search (if that information is available). These categories are the planet name, orbital period (in Earth days), the planet mass (in Jupiter masses), distance to the planetary system from Earth (in parsecs), temperature of the star that the planet orbits (in Kelvin) and the radius of the planet (in Jupiter radii). Directly above this table is a row which displays information on the Earth as a frame of reference to compare with the information that is returned on the exoplanets. This information includes Earth's orbital period, mass in Jupiter masses, distance from Earth in parsecs (0 in this case),temperature in Kelvin, and radius in Jupiter radii. 
+The results are displayed in the form of a table which is organized into six columns. Each column contains a category of information for each planet that is retrieved from the search (if that information is available). These categories are the planet name, orbital period (in Earth days), the planet mass (in Jupiter masses), distance to the planetary system from Earth (in parsecs), temperature of the star that the planet orbits (in Kelvin) and the radius of the planet (in Jupiter radii). Directly above this table is a row which displays information on the Earth as a frame of reference to compare with the information that is returned on the exoplanets. This information includes Earth's orbital period, mass in Jupiter masses, distance from Earth in parsecs (0 in this case), temperature in Kelvin, and radius in Jupiter radii. 
 <br><br>
 ![Search-Gif](/gifs/search.gif)
 <br><br>
-Clicking on the name of any planet in the table will open a new tab with additional information on that planet. On this page is a search bar where the user can enter his or her weight in pounds to find out what he or she would weigh on the selected planet. Clicking the submit button below the input form triggers a function which uses the person's entered weight and the planet's mass or radius to calculate the person's weight in pounds on that planet and display it below the submit button. If data on either the planet's mass or its radius are not available, then the message "Sorry, there is either no data on this planet's Mass or Radius" will be displayed there instead. If data on the planet's radius is available, this information will be used to create a SVG circle, which is displayed below. If this information is not available, the text "No data" will be displayed there instead. Next to the circle representing this exoplanet, two additional circles are displayed - one representing the Earth and one representing Jupiter. The size of the circle representing each planet is proportional to the size of the actual planets, to show the sizes of each compared to the others.
+Clicking on the name of any planet in the table will open a new tab with additional information on that planet.
+<br><br>
+![Planet-Gif](/gifs/planet.gif)
+<br><br>
+ On this page is a search bar where the user can enter his or her weight in pounds to find out what he or she would weigh on the selected planet. Clicking the submit button below the input form triggers a function which uses the person's entered weight and the planet's mass or radius to calculate the person's weight in pounds on that planet and display it below the submit button. If data on either the planet's mass or its radius are not available, then the message "Sorry, there is either no data on this planet's Mass or Radius" will be displayed there instead. If data on the planet's radius is available, this information will be used to create a SVG circle, which is displayed below. If this information is not available, the text "No data" will be displayed there instead. 
+ <br><br>
+![Weight-Gif](/gifs/weight.gif)
+<br><br>
+ Next to the circle representing this exoplanet, two additional circles are displayed - one representing the Earth and one representing Jupiter. The size of the circle representing each planet is proportional to the size of the actual planets, to show the sizes of each compared to the others.
 At the bottom of the page is a button labeled 'Get more planet info.' Clicking on this button will open a new tab which displays the search results for that planet on the NASA exoplanet website.
+<br><br>
+![More-Info-Gif](/gifs/more-info.gif)
+<br><br>
 
 ## Technology used
 * HTML
